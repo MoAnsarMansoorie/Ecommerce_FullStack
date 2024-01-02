@@ -1,9 +1,14 @@
-const express = require("express")
-const colors = require("colors")
+import express from "express"
+import dotenv from "dotenv"
+import colors from "colors"
 
+// configure dotenv
+dotenv.config()
+
+// rest object
 const app = express()
 
-PORT = 8000
+const PORT = process.env.PORT || 8080
 
 // Rest API
 app.get("/", (req, res) => {
