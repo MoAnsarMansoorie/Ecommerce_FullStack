@@ -102,3 +102,18 @@ export const loginController = async (req, res) => {
     }
 }
 
+// TEST CONTROLLER
+export const testController = (req, res) => {
+    try {
+        res.status(200).send({
+            success: true,
+            message: "Protected Routes"
+        })
+    } catch (error) {
+        res.status(400).send({
+            success: false,
+            message: "Invalid Token",
+            error
+        })
+    }
+}
