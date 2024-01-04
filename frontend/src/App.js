@@ -10,6 +10,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import DashBoard from './pages/DashBoard';
 import Private from './components/Routes/Private';
+import ForgotPassword from './pages/ForgotPassword';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='' element={<DashBoard />} />
         </Route>
         <Route path='/register' element={<Register />} />
+        <Route path='/forgot-password' element={<ForgotPassword />} />
         <Route path='/login' element={<Login />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/about' element={<About />} />

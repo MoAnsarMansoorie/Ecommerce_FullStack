@@ -13,8 +13,8 @@ const Header = () => {
       user: null,
       token: "",
     });
-    localStorage.removeItem("auth")
-    toast.success("LogOut successfully!")
+    localStorage.removeItem("auth");
+    toast.success("LogOut successfully!");
   };
 
   return (
@@ -62,14 +62,36 @@ const Header = () => {
                 </>
               ) : (
                 <>
-                  <li className="nav-item">
+                  <li className="nav-item dropdown">
                     <NavLink
-                      to="/login"
-                      onClick={handleLogout}
-                      className="nav-link"
+                      className="nav-link dropdown-toggle"
+                      id="navbarDropdown"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
                     >
-                      LogOut
+                      {auth?.user.name}
                     </NavLink>
+                    <ul
+                      className="dropdown-menu"
+                      aria-labelledby="navbarDropdown"
+                    >
+                      <li>
+                        <NavLink to="/dashboard" className="dropdown-item">
+                          DashBoard
+                        </NavLink>
+                      </li>
+
+                      <li>
+                        <NavLink
+                          to="/login"
+                          onClick={handleLogout}
+                          className="dropdown-item"
+                        >
+                          LogOut
+                        </NavLink>
+                      </li>
+                    </ul>
                   </li>
                 </>
               )}
