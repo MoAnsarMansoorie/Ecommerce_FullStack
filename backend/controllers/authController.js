@@ -7,7 +7,7 @@ export const registerController = async (req, res) => {
         const {name, email, password, phone, address} = req.body
         // validations
         if(!name && !email && !password && !phone && !address) {
-            return res.send({error : "All credientials are required"})
+            return res.send({message : "All credientials are required"})
         }
 
         // check user
@@ -16,7 +16,7 @@ export const registerController = async (req, res) => {
         // existing user
         if(existingUser) {
             return res.status(200).send({
-                success: true,
+                success: false,
                 message : "Already registerd, Please LogIn"
             })
         }
