@@ -6,6 +6,7 @@ import colors from "colors"
 import connectToDb from "./config/db.js"
 import authRoute from "./routes/authRoute.js"
 import categoryRoute from "./routes/categoryRoute.js"
+import productRoute from "./routes/productRoute.js"
 
 // configure dotenv
 dotenv.config()
@@ -24,6 +25,7 @@ app.use(morgan("dev"))
 // routes
 app.use("/api/v1/auth", authRoute)
 app.use("/api/v1/category", categoryRoute)
+app.use("/api/v1/product", productRoute)
 
 const PORT = process.env.PORT || 8080
 
