@@ -5,7 +5,7 @@ import slugify from "slugify";
 // creating product
 export const createProductController = async (req, res) => {
   try {
-    const { name, description, price, category, quantity, shipping } =
+    const { name, slug, description, price, category, quantity, shipping } =
       req.fields;
     const { photo } = req.files;
 

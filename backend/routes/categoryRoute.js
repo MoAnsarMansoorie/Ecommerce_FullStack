@@ -10,7 +10,7 @@ const router = express.Router()
 router.post("/create-category", requireSignIn, isAdmin, createCategoryController)
 
 // update category
-router.put("/update-category/id", requireSignIn, isAdmin, updateCategoryController)
+router.put("/update-category/:id", requireSignIn, isAdmin, updateCategoryController)
 
 // get all category
 router.get("/get-category", categoryController)
@@ -19,6 +19,6 @@ router.get("/get-category", categoryController)
 router.get("/single-category/:slug", singleCategoryController)
 
 // delet category
-router.delete("/dalete-category/:id", requireSignIn, isAdmin, deleteCategoryController )
+router.delete("/delete-category/:id", requireSignIn, isAdmin, deleteCategoryController )
 
 export default router
