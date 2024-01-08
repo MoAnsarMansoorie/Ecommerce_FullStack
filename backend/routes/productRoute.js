@@ -19,7 +19,7 @@ router.get("/get-product/:slug", getSingleProductController)
 router.get("/product-photo/:pid", getPhotoController)
 
 // delete product
-router.delete("/product/:pid", deleteProductController)
+router.delete("/delete-product/:pid", deleteProductController)
 
 // update product
 router.put("/update-product/:pid", requireSignIn, isAdmin, formidable(), updateProductController)
