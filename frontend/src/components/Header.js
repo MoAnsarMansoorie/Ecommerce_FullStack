@@ -4,8 +4,10 @@ import { FaShoppingBag } from "react-icons/fa";
 import { useAuth } from "../contexts/auth";
 import toast from "react-hot-toast";
 import SearchInput from "./Form/SearchInput";
+import useCategory from "../hooks/useCategory";
 
 const Header = () => {
+  const categories = useCategory();
   const [auth, setAuth] = useAuth();
 
   const handleLogout = () => {
@@ -44,11 +46,34 @@ const Header = () => {
                   Home
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink to="/category" className="nav-link">
-                  Category
-                </NavLink>
+
+              <li className="nav-item dropdown">
+                <Link
+                  className="nav-link dropdown-toggle"
+                  to={"/categories"}
+                  id="navbarDropdown"
+                  
+                  data-bs-toggle="dropdown"
+                  
+                >
+                  Categories
+                </Link>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                      <Link className="dropdown-item" to={`/categories`}>
+                        All Category
+                      </Link>
+                    </li>
+                  {categories?.map((c) => (
+                    <li>
+                      <Link className="dropdown-item" to={`category/${c.slug}`}>
+                        {c.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </li>
+
               {!auth.user ? (
                 <>
                   <li className="nav-item">
@@ -79,7 +104,12 @@ const Header = () => {
                       aria-labelledby="navbarDropdown"
                     >
                       <li>
-                        <NavLink to={`/dashboard/${auth?.user?.role===1 ? "admin" : "user"}`} className="dropdown-item">
+                        <NavLink
+                          to={`/dashboard/${
+                            auth?.user?.role === 1 ? "admin" : "user"
+                          }`}
+                          className="dropdown-item"
+                        >
                           DashBoard
                         </NavLink>
                       </li>
