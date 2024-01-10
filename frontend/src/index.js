@@ -1,20 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import {BrowserRouter} from "react-router-dom"
-import { AuthProvider } from './contexts/auth';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
+import { AuthProvider } from "./contexts/auth";
 import "antd/dist/reset.css";
+import { SearchProvider } from "./contexts/search";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <AuthProvider>
-    <BrowserRouter>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    </BrowserRouter>
+    <SearchProvider>
+      <BrowserRouter>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </BrowserRouter>
+    </SearchProvider>
   </AuthProvider>
 );
 
