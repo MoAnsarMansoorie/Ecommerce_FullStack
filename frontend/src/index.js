@@ -7,16 +7,19 @@ import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./contexts/auth";
 import "antd/dist/reset.css";
 import { SearchProvider } from "./contexts/search";
+import { CartProvider } from "./contexts/cart";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <AuthProvider>
     <SearchProvider>
-      <BrowserRouter>
-        <React.StrictMode>
-          <App />
-        </React.StrictMode>
-      </BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
+          <React.StrictMode>
+            <App />
+          </React.StrictMode>
+        </BrowserRouter>
+      </CartProvider>
     </SearchProvider>
   </AuthProvider>
 );
